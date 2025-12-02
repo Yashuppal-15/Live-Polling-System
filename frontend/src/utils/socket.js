@@ -1,17 +1,17 @@
-import io from 'socket.io-client';
+import { io } from 'socket.io-client';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
 let socketInstance = null;
 
-export const getSocket = () => {
+const getSocket = () => {
   if (!socketInstance) {
     socketInstance = io(BACKEND_URL, {
       reconnection: true,
       reconnectionDelay: 1000,
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5,
-      transports: ['websocket']
+      transports: ['websocket'],
     });
 
     socketInstance.on('connect', () => {
@@ -23,11 +23,11 @@ export const getSocket = () => {
     });
 
     socketInstance.on('connect_error', (error) => {
-      console.error('Connection error:', error);
+      console.error('Connection error:', error.message || error);
     });
   }
 
   return socketInstance;
 };
 
-export default getSocket();
+export default getSocket;
