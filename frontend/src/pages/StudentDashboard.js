@@ -5,7 +5,7 @@ import getSocket from '../utils/socket';
 import ChatPopup from '../components/ChatPopup';
 import '../styles/student.css';
 
-const socket = getSocket;
+const socket = getSocket();
 const RESULT_DISPLAY_TIME = 3000; // 3 seconds
 
 export default function StudentDashboard() {

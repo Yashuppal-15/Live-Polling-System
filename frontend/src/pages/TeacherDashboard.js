@@ -5,7 +5,7 @@ import getSocket from '../utils/socket';
 import ChatPopup from '../components/ChatPopup';
 import '../styles/teacher.css';
 
-const socket = getSocket;
+const socket = getSocket();
 
 export default function TeacherDashboard() {
   const navigate = useNavigate();
