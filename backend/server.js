@@ -15,7 +15,12 @@ const io = socketIo(server, {
 });
 
 
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_ORIGIN || 'http://localhost:3000',
+    methods: ['GET', 'POST'],
+  })
+);
 app.use(express.json());
 
 // In-memory storage
