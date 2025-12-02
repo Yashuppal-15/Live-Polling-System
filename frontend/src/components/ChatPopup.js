@@ -1,3 +1,5 @@
+// ChatPopup.js (No logic change, just assuming it needs a structural element for a new KickedOut component)
+
 import React, { useState } from 'react';
 import '../styles/chat.css';
 

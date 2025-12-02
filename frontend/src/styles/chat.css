@@ -1,116 +1,165 @@
+/* src/styles/chat.css */
+
 .chat-fab {
   position: fixed;
-  right: 32px;
-  bottom: 32px;
-  width: 56px;
-  height: 56px;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+  background: var(--primary-purple);
+  color: white;
   border: none;
-  background: #7765da;
-  color: #fff;
   font-size: 24px;
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 .chat-popup {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
-  width: 320px;
-  background: #fff;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background: var(--white);
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  z-index: 1000;
 }
 
 .chat-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #f2f2f2;
+  padding: 0 15px; /* Removed vertical padding, buttons handle height */
+  background: #f7f7f7;
+  border-bottom: 1px solid #eee;
 }
 
 .chat-header button {
-  flex: 1;
-  padding: 10px 0;
+  flex-grow: 1;
+  padding: 10px 8px; /* Added vertical padding here */
   border: none;
-  background: transparent;
-  font-size: 14px;
+  background: none;
+  font-weight: 500;
   cursor: pointer;
+  color: var(--text-medium);
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  font-size: 14px;
 }
 
 .chat-header button.active {
-  color: #4f0dce;
-  border-bottom: 2px solid #4f0dce;
+  color: var(--primary-purple);
+  border-bottom-color: var(--primary-purple);
 }
 
 .chat-close {
-  padding: 0 12px;
+  font-size: 20px;
+  font-weight: 300;
   cursor: pointer;
+  color: var(--text-medium);
+  padding-left: 10px;
 }
 
 .chat-body {
-  padding: 12px;
-  max-height: 260px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
+  padding: 15px;
+  overflow-y: auto;
 }
 
+/* Chat Messages */
 .chat-messages {
-  flex: 1;
+  flex-grow: 1;
   overflow-y: auto;
-  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 5px; 
 }
 
 .chat-message {
-  margin-bottom: 8px;
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
 }
 
-.chat-message .chat-author {
+.chat-message.student {
+  align-self: flex-start;
+  background: #e0e0e0;
+  color: var(--text-dark);
+}
+
+.chat-message.teacher {
+  align-self: flex-start;
+  background: var(--primary-purple);
+  color: var(--white);
+}
+
+.chat-message.self {
+  align-self: flex-end;
+  background: var(--secondary-blue); 
+  color: var(--white);
+}
+
+.chat-author {
   display: block;
-  font-size: 11px;
-  color: #6e6e6e;
+  font-size: 10px;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-bottom: 2px;
 }
 
-.chat-message .chat-text {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 12px;
-  background: #f2f2f2;
-  font-size: 13px;
+.chat-message.self .chat-author {
+  text-align: right;
 }
 
-.chat-message.self .chat-text {
-  background: #7765da;
-  color: #fff;
-}
-
+/* Chat Input */
 .chat-input-row {
   display: flex;
-  gap: 6px;
+  margin-top: 10px;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
 }
 
 .chat-input-row input {
-  flex: 1;
-  border-radius: 999px;
-  border: 1px solid #e0e0e0;
-  padding: 6px 10px;
-  font-size: 13px;
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
 }
 
 .chat-input-row button {
-  border-radius: 999px;
+  padding: 10px 12px;
   border: none;
-  background: #4f0dce;
-  color: #fff;
-  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--primary-purple);
+  color: var(--white);
+  font-weight: 600;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
+}
+
+/* Participants List */
+.chat-body.participants {
+  padding: 0;
+  gap: 0;
 }
 
 .participant-row {
-  padding: 6px 0;
-  border-bottom: 1px solid #f2f2f2;
-  font-size: 13px;
+  padding: 10px 15px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  color: var(--text-dark);
 }

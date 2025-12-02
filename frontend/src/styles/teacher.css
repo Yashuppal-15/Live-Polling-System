@@ -1,8 +1,8 @@
-/* Teacher Dashboard Styles */
+/* src/styles/teacher.css */
 
 .teacher-dashboard {
   min-height: 100vh;
-  background: linear-gradient(135deg, #7765da 0%, #5667d0 100%);
+  background: var(--light-bg); 
   padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
@@ -13,33 +13,37 @@
   padding: 20px;
   margin-bottom: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 0 auto 24px auto;
 }
 
 .teacher-header h1 {
   margin: 0 0 16px 0;
   font-size: 28px;
-  color: #373737;
+  color: var(--text-dark);
 }
 
 .room-info {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 
 .room-info p {
   margin: 0;
   font-size: 14px;
-  color: #666;
+  color: var(--text-medium);
 }
 
 .room-info strong {
-  color: #7765da;
+  color: var(--primary-purple);
   font-weight: 600;
 }
 
 .teacher-container {
+  max-width: 1000px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -58,7 +62,7 @@
 .create-poll-section h2 {
   font-size: 18px;
   margin: 0 0 16px 0;
-  color: #373737;
+  color: var(--text-dark);
 }
 
 .poll-status {
@@ -94,7 +98,7 @@
   margin-bottom: 8px;
   font-size: 13px;
   font-weight: 600;
-  color: #373737;
+  color: var(--text-dark);
 }
 
 .input-field {
@@ -109,7 +113,7 @@
 
 .input-field:focus {
   outline: none;
-  border-color: #7765da;
+  border-color: var(--primary-purple);
   box-shadow: 0 0 0 3px rgba(119, 101, 218, 0.1);
 }
 
@@ -139,7 +143,7 @@
 }
 
 .btn-primary {
-  background: #7765da;
+  background: var(--primary-purple);
   color: white;
   width: 100%;
 }
@@ -158,8 +162,8 @@
 
 .btn-secondary {
   background: white;
-  color: #7765da;
-  border: 1px solid #e0e0e0;
+  color: var(--primary-purple);
+  border: 1px solid var(--primary-purple);
 }
 
 .btn-secondary:hover {
@@ -184,13 +188,13 @@
 .poll-info-section h2 {
   font-size: 16px;
   margin: 0 0 16px 0;
-  color: #373737;
+  color: var(--text-dark);
 }
 
 .poll-question {
   font-size: 16px;
   font-weight: 600;
-  color: #373737;
+  color: var(--text-dark);
   margin: 12px 0;
 }
 
@@ -199,7 +203,7 @@
   flex-direction: column;
   gap: 8px;
   font-size: 13px;
-  color: #666;
+  color: var(--text-medium);
 }
 
 /* Results Section */
@@ -215,7 +219,7 @@
 .results-section h2 {
   font-size: 16px;
   margin: 0 0 16px 0;
-  color: #373737;
+  color: var(--text-dark);
 }
 
 .results-display {
@@ -236,11 +240,11 @@
 
 .option-label {
   font-weight: 500;
-  color: #373737;
+  color: var(--text-dark);
 }
 
 .result-stats {
-  color: #7765da;
+  color: var(--text-dark);
   font-weight: 600;
 }
 
@@ -253,13 +257,13 @@
 
 .result-fill {
   height: 100%;
-  background: linear-gradient(90deg, #7765da, #5667d0);
+  background: var(--primary-purple);
   transition: width 0.3s ease;
 }
 
 .total-responses {
   font-size: 12px;
-  color: #999;
+  color: var(--text-medium);
   margin-top: 12px;
 }
 
@@ -283,13 +287,13 @@
 .section-header h2 {
   font-size: 16px;
   margin: 0;
-  color: #373737;
+  color: var(--text-dark);
 }
 
 .link-button {
   background: none;
   border: none;
-  color: #7765da;
+  color: var(--primary-purple);
   cursor: pointer;
   font-size: 13px;
   text-decoration: underline;
@@ -298,6 +302,7 @@
 
 .link-button.danger {
   color: #d01515;
+  text-decoration: none; 
 }
 
 .students-list {
@@ -319,7 +324,7 @@
 
 .student-card:hover {
   background: #f0f0f0;
-  border-color: #7765da;
+  border-color: var(--primary-purple);
 }
 
 .student-info {
@@ -331,7 +336,7 @@
 
 .student-name {
   font-weight: 500;
-  color: #373737;
+  color: var(--text-dark);
   font-size: 14px;
 }
 
@@ -365,6 +370,7 @@
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  grid-column: 1 / 3;
 }
 
 .history-header {
@@ -377,7 +383,7 @@
 .history-header h2 {
   margin: 0;
   font-size: 18px;
-  color: #373737;
+  color: var(--text-dark);
 }
 
 .history-list {
@@ -396,18 +402,18 @@
 
 .history-item:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-color: #7765da;
+  border-color: var(--primary-purple);
 }
 
 .history-item h3 {
   font-size: 14px;
   margin: 0 0 8px 0;
-  color: #7765da;
+  color: var(--primary-purple);
 }
 
 .history-question {
   font-weight: 600;
-  color: #373737;
+  color: var(--text-dark);
   margin: 0 0 12px 0;
   font-size: 14px;
 }
@@ -425,7 +431,7 @@
   justify-content: space-between;
   font-size: 12px;
   margin-bottom: 2px;
-  color: #666;
+  color: var(--text-medium);
 }
 
 .history-result-bar {
@@ -437,7 +443,7 @@
 
 .history-result-fill {
   height: 100%;
-  background: #7765da;
+  background: var(--primary-purple);
 }
 
 .history-meta {
@@ -449,34 +455,6 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .teacher-container {
-    grid-template-columns: 1fr;
-  }
-
-  .create-poll-section {
-    grid-column: 1;
-    grid-row: auto;
-  }
-
-  .poll-info-section {
-    grid-column: 1;
-    grid-row: auto;
-  }
-
-  .results-section {
-    grid-column: 1;
-    grid-row: auto;
-  }
-
-  .participants-section {
-    grid-column: 1;
-    grid-row: auto;
-  }
-
-  .students-list {
-    grid-template-columns: 1fr;
-  }
-
-  .history-list {
     grid-template-columns: 1fr;
   }
 }
