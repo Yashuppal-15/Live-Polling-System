@@ -11,15 +11,15 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
   cors: {
-    origin: process.env.FRONTEND_ORIGIN || 'http://localhost:3000',
-    methods: ['GET', 'POST']
-  }
+    origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+    methods: ['GET', 'POST'],
+  },
 });
 
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_ORIGIN || 'http://localhost:3000',
+    origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
     methods: ['GET', 'POST'],
   })
 );
@@ -535,11 +535,6 @@ function closePoll(roomId, pollId) {
 // ========================================
 // Start server
 // ========================================
-
-// server.listen(5000, () => {
-//   console.log('✅ Backend server running on http://localhost:5000');
-// });
-
 const PORT = process.env.PORT || 5000;
 
 // Local development: only listen when run directly
