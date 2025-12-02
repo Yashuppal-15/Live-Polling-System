@@ -1,6 +1,7 @@
 import { io } from 'socket.io-client';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+const BACKEND_URL =
+  process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 
 let socketInstance = null;
 
@@ -13,20 +14,7 @@ const getSocket = () => {
       reconnectionAttempts: 5,
       transports: ['websocket'],
     });
-
-    socketInstance.on('connect', () => {
-      console.log('✅ Connected to server:', socketInstance.id);
-    });
-
-    socketInstance.on('disconnect', () => {
-      console.log('❌ Disconnected from server');
-    });
-
-    socketInstance.on('connect_error', (error) => {
-      console.error('Connection error:', error.message || error);
-    });
   }
-
   return socketInstance;
 };
 
