@@ -527,6 +527,19 @@ function closePoll(roomId, pollId) {
 // ========================================
 // Start server
 // ========================================
-server.listen(5000, () => {
-  console.log('✅ Backend server running on http://localhost:5000');
-});
+
+// server.listen(5000, () => {
+//   console.log('✅ Backend server running on http://localhost:5000');
+// });
+
+const PORT = process.env.PORT || 5000;
+
+if (require.main === module) {
+  server.listen(PORT, () => {
+    console.log(`✅ Server running on port ${PORT}`);
+  });
+}
+
+// For Vercel serverless
+module.exports = server;
+
