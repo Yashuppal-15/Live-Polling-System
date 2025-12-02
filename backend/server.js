@@ -9,10 +9,11 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: process.env.FRONTEND_ORIGIN || 'http://localhost:3000',
     methods: ['GET', 'POST']
   }
 });
+
 
 app.use(cors());
 app.use(express.json());
@@ -534,12 +535,13 @@ function closePoll(roomId, pollId) {
 
 const PORT = process.env.PORT || 5000;
 
+// Local development: only listen when run directly
 if (require.main === module) {
   server.listen(PORT, () => {
     console.log(`✅ Server running on port ${PORT}`);
   });
 }
 
-// For Vercel serverless
+// For Vercel serverless deployment
 module.exports = server;
 
